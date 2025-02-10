@@ -1,8 +1,9 @@
+/* 透明度、模糊度、边框、遮罩 */
 :root {
-  --trans-light: rgba(255, 255, 255, 0.88);
-  --trans-dark: rgba(25, 25, 25, 0.88);
-  --border-style: 1px solid rgb(169, 169, 169);
-  --backdrop-filter: blur(5px) saturate(150%);
+  --trans-light: rgba(255, 255, 255, 0.88); /* 透明白 */
+  --trans-dark: rgba(25, 25, 25, 0.88); /* 透明黑 */
+  --border-style: 1px solid rgb(169, 169, 169); /* 边框 */
+  --backdrop-filter: blur(5px) saturate(150%); /* 模糊 */
 }
 
 
@@ -110,4 +111,10 @@ div#archive {
 [data-theme="dark"] .read-mode div#post {
   background: rgba(25, 25, 25, 0.9) !important;
   color: #ffffff;
+}
+
+
+.loading-img {
+  background: url('/image/头像.jpg') no-repeat center center; 
+  background-size: cover;
 }
