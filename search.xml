@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>markdown教学</title>
+      <link href="/2025/02/18/markdown%E6%95%99%E5%AD%A6/"/>
+      <url>/2025/02/18/markdown%E6%95%99%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h1><h2 id="标题（”Title”）"><a href="#标题（”Title”）" class="headerlink" title="标题（”Title”）"></a>标题（”Title”）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">井号加空格，几个井号就是几级标题 </span><br><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">adad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><h2 id="字体标记（”Font-markup”）"><a href="#字体标记（”Font-markup”）" class="headerlink" title="字体标记（”Font markup”）"></a>字体标记（”Font markup”）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**加粗**</span><br><span class="line">*斜体*</span><br><span class="line">~~删除~~</span><br><span class="line">==高亮==</span><br></pre></td></tr></table></figure><p><strong>加粗</strong>  <em>斜体</em>  <del>删除</del>  &#x3D;&#x3D;高亮&#x3D;&#x3D; </p><hr><h3 id="列表（”List”）"><a href="#列表（”List”）" class="headerlink" title="列表（”List”）"></a>列表（”List”）</h3><h4 id="1-有序列表（”Ordered-list”）"><a href="#1-有序列表（”Ordered-list”）" class="headerlink" title="1.有序列表（”Ordered list”）"></a>1.有序列表（”Ordered list”）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">数字加“.&quot;</span><br><span class="line">1. abc</span><br><span class="line">2. abc</span><br></pre></td></tr></table></figure><ol><li>abc</li><li>abc</li></ol><h4 id="2-无序列表（”Unordered-list”）"><a href="#2-无序列表（”Unordered-list”）" class="headerlink" title="2.无序列表（”Unordered list”）"></a>2.无序列表（”Unordered list”）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+,—,* 加空格</span><br><span class="line">+ abc</span><br><span class="line">- abc</span><br><span class="line">* abc</span><br></pre></td></tr></table></figure><ul><li>abc</li></ul><ul><li>abc</li></ul><ul><li>abc</li></ul><h4 id="3-列表的嵌套（”Nesting-of-lists”）"><a href="#3-列表的嵌套（”Nesting-of-lists”）" class="headerlink" title="3.列表的嵌套（”Nesting of lists”）"></a>3.列表的嵌套（”Nesting of lists”）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">会回车然后使用tab使得列表缩进</span><br><span class="line">shift加tab取消缩进</span><br></pre></td></tr></table></figure><p>（1）缩进( “indentation”)</p><p>* </p><p>  * </p><p>（2）有序无序嵌套(Nested ordered lists and unordered lists.)</p><ul><li><ol><li>1</li><li>2</li><li>3<ol><li><ol><li></li></ol></li><li>1</li><li>3</li></ol></li></ol></li></ul><hr><p>##段落(Paragraph.)</p><h3 id="1-引用语法-Quotation-syntax"><a href="#1-引用语法-Quotation-syntax" class="headerlink" title="1.引用语法(Quotation syntax.)"></a>1.引用语法(Quotation syntax.)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;引用</span><br></pre></td></tr></table></figure><blockquote><p>这是一段引用</p></blockquote><h3 id="3-分割线-Horizontal-rule"><a href="#3-分割线-Horizontal-rule" class="headerlink" title="3.分割线(Horizontal rule.)"></a>3.分割线(Horizontal rule.)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">***加回车</span><br><span class="line">---加回车</span><br></pre></td></tr></table></figure><hr><hr><h2 id="代码-Code"><a href="#代码-Code" class="headerlink" title="代码(Code.)"></a>代码(Code.)</h2><h3 id="1-单行代码-Inline-code"><a href="#1-单行代码-Inline-code" class="headerlink" title="1.单行代码(Inline code.)"></a>1.单行代码(Inline code.)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~单行代码~</span><br></pre></td></tr></table></figure><p>这是一段<del>单行代码</del>的样子</p><p><strong>注意</strong> ：单行代码可以在任意位置使用</p><h3 id="２-代码块-Code-block"><a href="#２-代码块-Code-block" class="headerlink" title="２.代码块(Code block.)"></a>２.代码块(Code block.)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~~加回车</span><br></pre></td></tr></table></figure><p><strong>注意</strong> :部分软甲可以直接回车，部分软件需要在后面加上～～～</p><hr><h2 id="超链接-Hyperlink"><a href="#超链接-Hyperlink" class="headerlink" title="超链接(Hyperlink.)"></a>超链接(Hyperlink.)</h2><h3 id="1-普通超链接-Regular-hyperlink"><a href="#1-普通超链接-Regular-hyperlink" class="headerlink" title="1.  普通超链接(Regular hyperlink.)"></a>1.  普通超链接(Regular hyperlink.)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接](网址)</span><br></pre></td></tr></table></figure><p><a href="https://github.com/">girhub</a></p><h3 id="2-高级超链接-Advanced-hyperlink"><a href="#2-高级超链接-Advanced-hyperlink" class="headerlink" title="2.高级超链接(Advanced hyperlink.)"></a>2.高级超链接(Advanced hyperlink.)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[网站名称][变量]</span><br></pre></td></tr></table></figure><p><a href="https://github.com/">github</a></p><h2 id="脚注-Footnote"><a href="#脚注-Footnote" class="headerlink" title="脚注(Footnote.)"></a>脚注(Footnote.)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[^1]</span><br></pre></td></tr></table></figure><p>脚注<a href="%E8%84%9A%E6%B3%A8">^1</a></p><hr><h2 id="图片-Image"><a href="#图片-Image" class="headerlink" title="图片(Image.)"></a>图片(Image.)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](图片链接)</span><br></pre></td></tr></table></figure><p><strong>注意</strong>：可以用html的格式来添加图片，实现改变图片大小等。</p><h2 id="图床-Image-hosting-service"><a href="#图床-Image-hosting-service" class="headerlink" title="图床(Image hosting service.)"></a>图床(Image hosting service.)</h2><p>所谓的图床就是⽤来在线存放图片的地方。</p><p>图床上的每⼀张图⽚都能够⽣成⼀个唯⼀的访问链接，使⽤这个链接，任何⼈都能</p><p>够在线读取你的图⽚。</p><h3 id="2-为什么需要图床"><a href="#2-为什么需要图床" class="headerlink" title="2.为什么需要图床"></a>2.为什么需要图床</h3><p>因为markdown编辑器文档无法存放图片，只能通过链接来调用，一旦分享文档，文档里的图片就无法显示。</p><h3 id="3-获取图床"><a href="#3-获取图床" class="headerlink" title="3.获取图床"></a>3.获取图床</h3><ul><li>使用现成的图床网站。<a href="https://www.superbed.cn/">聚合图床 - 免费无限图片上传 </a></li><li>自己搭建图床。<a href="https://eryinote.com/post/105">搭建图床教程</a></li></ul><h2 id="表格-Table"><a href="#表格-Table" class="headerlink" title="表格(Table.)"></a>表格(Table.)</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|表头|表头|</span><br><span class="line">|---|---|</span><br><span class="line">|单元格|单元格|</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">左对齐</span><br><span class="line">|：---|</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">右对齐</span><br><span class="line">|---：|</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">居中对齐</span><br><span class="line">|：———：|</span><br></pre></td></tr></table></figure><table><thead><tr><th align="left">左对齐</th><th align="center">居中对齐</th><th align="right">右对齐</th></tr></thead><tbody><tr><td align="left">a</td><td align="center">b</td><td align="right">c</td></tr></tbody></table><p>[^2]:<br>[^2]: DWIJIODJWA AWLDJWAIOJD</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>教学</title>
+      <link href="/2025/02/18/%E6%95%99%E5%AD%A6/"/>
+      <url>/2025/02/18/%E6%95%99%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>4</title>
+      <link href="/2025/02/09/4/"/>
+      <url>/2025/02/09/4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="阅读时候隐藏其他标签"><a href="#阅读时候隐藏其他标签" class="headerlink" title="阅读时候隐藏其他标签"></a>阅读时候隐藏其他标签</h2><h2 id="更好的文章信息"><a href="#更好的文章信息" class="headerlink" title="更好的文章信息"></a>更好的文章信息</h2><h2 id="更大的文章布局"><a href="#更大的文章布局" class="headerlink" title="更大的文章布局"></a>更大的文章布局</h2><h2 id="更多的图片"><a href="#更多的图片" class="headerlink" title="更多的图片"></a>更多的图片</h2><h2 id="卡片优化"><a href="#卡片优化" class="headerlink" title="卡片优化"></a>卡片优化</h2><h2 id="菜单优化"><a href="#菜单优化" class="headerlink" title="菜单优化"></a>菜单优化</h2><h2 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h2><h2 id="页脚"><a href="#页脚" class="headerlink" title="页脚"></a>页脚</h2><h2 id="更好的标签页-分类页"><a href="#更好的标签页-分类页" class="headerlink" title="更好的标签页,分类页"></a>更好的标签页,分类页</h2><h2 id="版权信息"><a href="#版权信息" class="headerlink" title="版权信息"></a>版权信息</h2><h2 id="代码块文字较少的时候，展开bug"><a href="#代码块文字较少的时候，展开bug" class="headerlink" title="代码块文字较少的时候，展开bug"></a>代码块文字较少的时候，展开bug</h2><h2 id="打字效果"><a href="#打字效果" class="headerlink" title="打字效果"></a>打字效果</h2><h2 id="首页标签卡"><a href="#首页标签卡" class="headerlink" title="首页标签卡"></a>首页标签卡</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 4 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 4 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>3</title>
+      <link href="/2025/02/09/3/"/>
+      <url>/2025/02/09/3/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 3 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2</title>
+      <link href="/2025/02/09/2/"/>
+      <url>/2025/02/09/2/</url>
+      
+        <content type="html"><![CDATA[<p>1232312 123123ewqdawdw</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 2 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 2 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>1</title>
+      <link href="/2025/02/09/1/"/>
+      <url>/2025/02/09/1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 1 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 1 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
