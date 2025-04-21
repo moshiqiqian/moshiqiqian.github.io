@@ -6,27 +6,14 @@
 }
 
 /* 自定义图标 */
-/* font.css */
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: 'iconfont';  /* Project id 4899761 */
-  src: url('//at.alicdn.com/t/c/font_4899761_x99yb0h4f6l.woff2?t=1745154649411') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4899761_x99yb0h4f6l.woff?t=1745154649411') format('woff'),
-       url('//at.alicdn.com/t/c/font_4899761_x99yb0h4f6l.ttf?t=1745154649411') format('truetype');
-}
-
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 16px; /* 字体大小自行修改 */
+  font-size: 3em; /* 这里可以自定义图标大小 */
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-github:before {
-  content: "\ea0b";
-  color: red; /* 图标颜色需要自行修改 */
-}
 /* 首页文章卡片 */
 #recent-posts .recent-post-item {
   background: var(--trans-light);
@@ -65,7 +52,7 @@ div#archive {
 }
 
 /* 夜间模式遮罩 */
-[data-theme="dark"] #recent-posts  .recent-post-item,
+[data-theme="dark"] #recent-posts .recent-post-item,
 [data-theme="dark"] #aside-content .card-widget,
 [data-theme="dark"] div#post,
 [data-theme="dark"] div#archive,
