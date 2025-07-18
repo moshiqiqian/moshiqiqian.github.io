@@ -488,3 +488,20 @@ button {
 }
 
 /*==============================================================================================*/
+/* katex字体*/
+.katex .base {
+  font-family: 'Times New Roman', 'Source Han Serif SC', '思源宋体', 'Noto Serif SC', serif; /* 修改为你希望的中文和西文字体 */
+}
+
+.katex .mathdefault {
+  font-family: 'Times New Roman', 'Source Han Serif SC', '思源宋体', 'Noto Serif SC', serif; /* 数学公式中的文本，通常是斜体 */
+}
+
+.katex .mord {
+  font-family: 'Times New Roman', 'Source Han Serif SC', '思源宋体', 'Noto Serif SC', serif; /* 一般文本 */
+}
+
+.katex .text, .katex .CJK { /* 针对 \text{} 或自定义的中文命令 */
+  font-family: 'Times New Roman', 'Source Han Serif SC', '思源宋体', 'Noto Serif SC', serif; /* 确保 \text{} 中的中文能够正常显示 */
+}
+/*==============================================================================================*/
