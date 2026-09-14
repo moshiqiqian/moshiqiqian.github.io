@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Langchain 简单实践</title>
+      <link href="/post/bcce08d0.html"/>
+      <url>/post/bcce08d0.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="langchain-环境搭建以及简单实践"><a class="markdownIt-Anchor" href="#langchain-环境搭建以及简单实践"></a> LangChain 环境搭建以及简单实践</h2><h3 id="一-用-anaconda-配置环境"><a class="markdownIt-Anchor" href="#一-用-anaconda-配置环境"></a> 一、用 Anaconda 配置环境</h3><h4 id="1-环境导入命令汇总"><a class="markdownIt-Anchor" href="#1-环境导入命令汇总"></a> 1. 环境导入命令汇总</h4><p>本项目的 Python 环境已经导出为 <code>environment-langchain_env.yml</code>，直接用 conda 导入即可。</p><p>powershell</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda env create -f environment-langchain_env.yml</span><br><span class="line">conda activate langchain_env</span><br></pre></td></tr></table></figure><h4 id="2-该-yml-中关键包及用途"><a class="markdownIt-Anchor" href="#2-该-yml-中关键包及用途"></a> 2. 该 yml 中关键包及用途</h4><table><thead><tr><th style="text-align:left">包名</th><th style="text-align:left">用途</th></tr></thead><tbody><tr><td style="text-align:left"><code>langchain</code></td><td style="text-align:left">LangChain 核心框架，提供链、提示词模板、输出解析器等基础组件</td></tr><tr><td style="text-align:left"><code>langchain-core</code></td><td style="text-align:left">LangChain 的核心抽象，被其他 LangChain 包依赖</td></tr><tr><td style="text-align:left"><code>langchain-openai</code></td><td style="text-align:left">OpenAI 适配器，提供 <code>ChatOpenAI</code>。兼容 OpenAI API 的服务（DeepSeek、通义千问等）都通过它调用</td></tr><tr><td style="text-align:left"><code>langchain-community</code></td><td style="text-align:left">社区集成包，包含 PDF/Word/网页加载器、向量库适配器、第三方工具</td></tr><tr><td style="text-align:left"><code>langchain-text-splitters</code></td><td style="text-align:left">文本分割器，LangChain 1.x 之后从主包拆出的独立包</td></tr><tr><td style="text-align:left"><code>langchain-classic</code></td><td style="text-align:left">兼容包，存放 LangChain 1.x 移除的旧 API，例如旧版 <code>AgentExecutor</code></td></tr><tr><td style="text-align:left"><code>langgraph</code></td><td style="text-align:left">LangChain 生态的工作流编排库，用于构建状态机、多节点、并行分支、循环 Agent</td></tr><tr><td style="text-align:left"><code>langsmith</code></td><td style="text-align:left">LangSmith SDK，负责把 LangChain / LangGraph 的调用过程上传到 LangSmith 平台</td></tr><tr><td style="text-align:left"><code>python-dotenv</code></td><td style="text-align:left">从 <code>.env</code> 读取 API Key，避免密钥硬编码</td></tr><tr><td style="text-align:left"><code>faiss-cpu</code></td><td style="text-align:left">本地向量索引，用于 RAG 检索</td></tr><tr><td style="text-align:left"><code>fastembed</code></td><td style="text-align:left">本地嵌入模型，用于把 PDF 切块转成向量，无需调用远程 embedding 接口</td></tr><tr><td style="text-align:left"><code>pypdf</code></td><td style="text-align:left">PDF 解析，用于 RAG 读取 <code>islr.pdf</code></td></tr><tr><td style="text-align:left"><code>ddgs</code></td><td style="text-align:left">DuckDuckGo 搜索，用于 Agent 联网查询</td></tr><tr><td style="text-align:left"><code>grandalf</code></td><td style="text-align:left">LangGraph 图形可视化辅助包</td></tr><tr><td style="text-align:left"><code>requests</code></td><td style="text-align:left">HTTP 客户端，被多数包依赖</td></tr></tbody></table><h3 id="二-文件夹中的操作"><a class="markdownIt-Anchor" href="#二-文件夹中的操作"></a> 二、文件夹中的操作</h3><h4 id="1-创建项目文件夹"><a class="markdownIt-Anchor" href="#1-创建项目文件夹"></a> 1. 创建项目文件夹</h4><p>在桌面创建项目目录：</p><p>Plaintext</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\yurui\Desktop\LangChain</span><br></pre></td></tr></table></figure><p>这个文件夹将存放所有项目代码和配置文件。</p><h4 id="2-创建-env-配置文件"><a class="markdownIt-Anchor" href="#2-创建-env-配置文件"></a> 2. 创建 <code>.env</code> 配置文件</h4><p>在 <code>LangChain</code> 文件夹中创建 <code>.env</code> 文件，内容如下：</p><p>代码段</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OPENAI_API_KEY=***</span><br><span class="line">OPENAI_API_BASE=https://api.deepseek.com/v1</span><br></pre></td></tr></table></figure><ul><li><strong>文件作用：</strong><ul><li><code>OPENAI_API_KEY</code>：你的 DeepSeek API 密钥，用于身份认证</li><li><code>OPENAI_API_BASE</code>：API 服务地址，DeepSeek 的接口地址</li></ul></li><li><strong>重要：</strong> 文件名必须是 <code>.env</code></li></ul><h4 id="3-创建基础测试代码文件-testpy"><a class="markdownIt-Anchor" href="#3-创建基础测试代码文件-testpy"></a> 3. 创建基础测试代码文件 (<code>test.py</code>)</h4><p>在 <code>LangChain</code> 文件夹中创建 <code>test.py</code> 文件，写入以下代码测试基础大模型连通性：</p><p>Python</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">from dotenv import load_dotenv</span><br><span class="line">from langchain_openai import ChatOpenAI</span><br><span class="line"></span><br><span class="line"># 加载 .env 文件中的环境变量</span><br><span class="line">load_dotenv()</span><br><span class="line"></span><br><span class="line"># 初始化 DeepSeek 大模型</span><br><span class="line">llm = ChatOpenAI(</span><br><span class="line">    model=&quot;deepseek-chat&quot;,                      # DeepSeek 模型名称</span><br><span class="line">    temperature=0.7,                            # 控制回答的随机性</span><br><span class="line">    api_key=os.getenv(&quot;OPENAI_API_KEY&quot;),        # 从 .env 读取 Key</span><br><span class="line">    base_url=os.getenv(&quot;OPENAI_API_BASE&quot;),      # 从 .env 读取 API 地址</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 调用模型</span><br><span class="line">response = llm.invoke(&quot;用一句话介绍什么是LangChain&quot;)</span><br><span class="line">print(response.content)</span><br></pre></td></tr></table></figure><h4 id="4-创建-langgraph-工作流测试文件-graph_testpy"><a class="markdownIt-Anchor" href="#4-创建-langgraph-工作流测试文件-graph_testpy"></a> 4. 创建 LangGraph 工作流测试文件 (<code>graph_test.py</code>)</h4><p>在 <code>LangChain</code> 文件夹中创建 <code>graph_test.py</code> 文件，体验用 <strong>LangGraph</strong> 编排一个最简单的状态图工作流：</p><p>Python</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">from typing import TypedDict</span><br><span class="line">from dotenv import load_dotenv</span><br><span class="line">from langchain_openai import ChatOpenAI</span><br><span class="line">from langgraph.graph import StateGraph, START, END</span><br><span class="line"></span><br><span class="line"># 加载环境变量</span><br><span class="line">load_dotenv()</span><br><span class="line"></span><br><span class="line"># 初始化大模型</span><br><span class="line">llm = ChatOpenAI(</span><br><span class="line">    model=&quot;deepseek-chat&quot;,</span><br><span class="line">    temperature=0.7,</span><br><span class="line">    api_key=os.getenv(&quot;OPENAI_API_KEY&quot;),</span><br><span class="line">    base_url=os.getenv(&quot;OPENAI_API_BASE&quot;),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 定义 LangGraph 的状态结构 (State)</span><br><span class="line">class State(TypedDict):</span><br><span class="line">    message: str</span><br><span class="line">    response: str</span><br><span class="line"></span><br><span class="line"># 定义一个处理节点：调用大模型</span><br><span class="line">def call_model(state: State):</span><br><span class="line">    res = llm.invoke(state[&quot;message&quot;])</span><br><span class="line">    return &#123;&quot;response&quot;: res.content&#125;</span><br><span class="line"></span><br><span class="line"># 构建 LangGraph 工作流图</span><br><span class="line">workflow = StateGraph(State)</span><br><span class="line"></span><br><span class="line"># 添加节点</span><br><span class="line">workflow.add_node(&quot;model_node&quot;, call_model)</span><br><span class="line"></span><br><span class="line"># 设置流向：从开始 -&gt; 进入模型节点 -&gt; 结束</span><br><span class="line">workflow.add_edge(START, &quot;model_node&quot;)</span><br><span class="line">workflow.add_edge(&quot;model_node&quot;, END)</span><br><span class="line"></span><br><span class="line"># 编译工作流</span><br><span class="line">app = workflow.compile()</span><br><span class="line"></span><br><span class="line"># 运行 LangGraph 应用</span><br><span class="line">result = app.invoke(&#123;&quot;message&quot;: &quot;用一句话介绍什么是LangGraph&quot;&#125;)</span><br><span class="line">print(&quot;LangGraph 运行结果：&quot;)</span><br><span class="line">print(result[&quot;response&quot;])</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教学 </category>
+          
+          <category> 人工智能 </category>
+          
+          <category> LangChain </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LangChain </tag>
+            
+            <tag> 人工智能 </tag>
+            
+            <tag> LangGraph </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>测试知识杂烩</title>
       <link href="/post/1ec4296a.html"/>
       <url>/post/1ec4296a.html</url>
@@ -40,6 +73,8 @@
       
       <categories>
           
+          <category> 教学 </category>
+          
           <category> 测试 </category>
           
           <category> 弱网测试 </category>
@@ -58,7 +93,7 @@
     
     
     <entry>
-      <title>LangChain</title>
+      <title>LangChain 介绍</title>
       <link href="/post/a2992615.html"/>
       <url>/post/a2992615.html</url>
       
@@ -70,6 +105,8 @@
           <category> 教学 </category>
           
           <category> 人工智能 </category>
+          
+          <category> LangChain </category>
           
       </categories>
       
