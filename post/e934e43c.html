@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JMeter教学 | moshiqiqian</title><meta name="author" content="moshiqiqian"><meta name="copyright" content="moshiqiqian"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="JMeter教学">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JMeter教学">
+<meta property="og:url" content="https://moshiqiqian.top/post/e934e43c.html">
+<meta property="og:site_name" content="moshiqiqian">
+<meta property="og:description" content="JMeter教学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://moshiqiqian.github.io/picx-images-hosting/%E7%BD%91%E7%AB%99/%E5%B0%81%E9%9D%A25.45hyorc8qc.webp">
+<meta property="article:published_time" content="2026-09-16T08:14:50.000Z">
+<meta property="article:modified_time" content="2026-10-22T12:56:33.982Z">
+<meta property="article:author" content="moshiqiqian">
+<meta property="article:tag" content="JMeter">
+<meta property="article:tag" content="压力测试">
+<meta property="article:tag" content="测试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://moshiqiqian.github.io/picx-images-hosting/%E7%BD%91%E7%AB%99/%E5%B0%81%E9%9D%A25.45hyorc8qc.webp"><script type="application/ld+json"></script><link rel="shortcut icon" href="/picture/favicon.ico"><link rel="canonical" href="https://moshiqiqian.top/post/e934e43c.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#1a1a1a')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 7 || hour >= 19
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JMeter教学',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'jmeter'
+}</script><script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="//at.alicdn.com/t/c/font_4892928_90poycgclrw.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.6/lib/theme-chalk/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 8.1.1"></head><body><div id="web_bg" style="background-image: url(/picture/%E5%B0%81%E9%9D%A2top.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/picture/not_found.jpg'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-house"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-newspaper"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa-solid fa-bars"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa-solid fa-server"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-address-card"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa-solid fa-file-invoice"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw fa-solid fa-sign-hanging"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/social/shuoshuo/"><i class="fa-fw fa-solid fa-star-of-david"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-gem"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/personal/about/"><i class="fa-fw fa-solid fa-tv"></i><span> 关于本站</span></a></li><li><a class="site-page child" href="/personal/person/"><i class="fa-fw fa-solid fa-blender"></i><span> 关于个人</span></a></li><li><a class="site-page child" href="/personal/MO/"><i class="fa-fw fa-solid fa-key"></i><span> MO的私货</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">moshiqiqian</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-house"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-newspaper"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fa-solid fa-bars"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fa-solid fa-server"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-address-card"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa-solid fa-file-invoice"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/social/link/"><i class="fa-fw fa-solid fa-sign-hanging"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/social/shuoshuo/"><i class="fa-fw fa-solid fa-star-of-david"></i><span> 说说</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-gem"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/personal/about/"><i class="fa-fw fa-solid fa-tv"></i><span> 关于本站</span></a></li><li><a class="site-page child" href="/personal/person/"><i class="fa-fw fa-solid fa-blender"></i><span> 关于个人</span></a></li><li><a class="site-page child" href="/personal/MO/"><i class="fa-fw fa-solid fa-key"></i><span> MO的私货</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">JMeter教学</h1></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h3 id="jmeter-可添加组件总览"><a class="markdownIt-Anchor" href="#jmeter-可添加组件总览"></a> JMeter 可添加组件总览</h3>
+<p>在 JMeter 里，右键 <strong>测试计划</strong> 或 <strong>线程组</strong>，菜单里的“添加”通常包含以下几大类：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类别</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">常见组件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>线程（Users）</strong></td>
+<td style="text-align:left">控制“谁来跑、跑多久、跑几次”</td>
+<td style="text-align:left">线程组、setUp 线程组、tearDown 线程组、开放模型线程组</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>配置元件（Config Element）</strong></td>
+<td style="text-align:left">给请求提供公共配置</td>
+<td style="text-align:left">CSV 数据文件设置、HTTP 信息头管理器、HTTP Cookie 管理器、HTTP 请求默认值、用户定义的变量</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>取样器（Sampler）</strong></td>
+<td style="text-align:left">真正发出请求</td>
+<td style="text-align:left">HTTP 请求、JDBC 请求、FTP 请求、TCP 请求、调试取样器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>逻辑控制器（Logic Controller）</strong></td>
+<td style="text-align:left">控制请求执行顺序</td>
+<td style="text-align:left">事务控制器、循环控制器、If 控制器、While 控制器、ForEach 控制器、Switch 控制器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>前置处理器（Pre Processor）</strong></td>
+<td style="text-align:left">请求发出前做处理</td>
+<td style="text-align:left">JSR223 前置处理器、BeanShell 前置处理器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>后置处理器（Post Processor）</strong></td>
+<td style="text-align:left">请求返回后做处理</td>
+<td style="text-align:left">JSON 提取器、正则表达式提取器、XPath 提取器、边界提取器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>断言（Assertion）</strong></td>
+<td style="text-align:left">判断响应是否正确</td>
+<td style="text-align:left">响应断言、JSON 断言、持续时间断言、大小断言</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>定时器（Timer）</strong></td>
+<td style="text-align:left">控制请求间隔</td>
+<td style="text-align:left">固定定时器、随机定时器、常数吞吐量定时器、同步定时器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>测试片段（Test Fragment）</strong></td>
+<td style="text-align:left">可复用的测试模块</td>
+<td style="text-align:left">测试片段</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>非测试元件（Non-Test Element）</strong></td>
+<td style="text-align:left">辅助工具</td>
+<td style="text-align:left">HTTP 代理服务器、HTTP 镜像服务器</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>监听器（Listener）</strong></td>
+<td style="text-align:left">收集和展示结果</td>
+<td style="text-align:left">聚合报告、查看结果树、汇总报告、用表格查看结果、后端监听器</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="压力测试的先后框架"><a class="markdownIt-Anchor" href="#压力测试的先后框架"></a> 压力测试的先后框架</h3>
+<p>一次完整的 JMeter 压测，组件按<strong>执行顺序</strong>和<strong>逻辑层级</strong>组织如下：</p>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">测试计划（Test Plan）</span><br><span class="line">│</span><br><span class="line">├── setUp 线程组（可选）</span><br><span class="line">│   └── 登录 / 初始化数据</span><br><span class="line">│</span><br><span class="line">├── 线程组（主压测）</span><br><span class="line">│   ├── 配置元件</span><br><span class="line">│   │   ├── CSV 数据文件设置</span><br><span class="line">│   │   ├── HTTP 信息头管理器</span><br><span class="line">│   │   ├── HTTP Cookie 管理器</span><br><span class="line">│   │   └── 用户定义的变量</span><br><span class="line">│   │</span><br><span class="line">│   ├── 逻辑控制器（可选）</span><br><span class="line">│   │   └── 事务控制器 / 循环控制器 / If 控制器</span><br><span class="line">│   │</span><br><span class="line">│   ├── 前置处理器（可选）</span><br><span class="line">│   │   └── JSR223 前置处理器</span><br><span class="line">│   │</span><br><span class="line">│   ├── 定时器（可选）</span><br><span class="line">│   │   └── 固定定时器 / 同步定时器</span><br><span class="line">│   │</span><br><span class="line">│   ├── 取样器</span><br><span class="line">│   │   └── HTTP 请求</span><br><span class="line">│   │</span><br><span class="line">│   ├── 后置处理器（可选）</span><br><span class="line">│   │   └── JSON 提取器 / 正则表达式提取器</span><br><span class="line">│   │</span><br><span class="line">│   └── 断言（可选）</span><br><span class="line">│       └── 响应断言 / JSON 断言</span><br><span class="line">│</span><br><span class="line">├── tearDown 线程组（可选）</span><br><span class="line">│   └── 清理数据 / 退出登录</span><br><span class="line">│</span><br><span class="line">└── 监听器</span><br><span class="line">    ├── 聚合报告</span><br><span class="line">    └── 查看结果树（调试用）</span><br></pre></td></tr></table></figure>
+<hr />
+<h3 id="执行顺序从外到内"><a class="markdownIt-Anchor" href="#执行顺序从外到内"></a> 执行顺序（从外到内）</h3>
+<p>JMeter 执行时，<strong>同一层级内按从上到下顺序执行</strong>，跨层级按以下顺序：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">顺序</th>
+<th style="text-align:left">组件</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>配置元件</strong></td>
+<td style="text-align:left">先准备好配置（CSV、Header、Cookie）</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>前置处理器</strong></td>
+<td style="text-align:left">请求前处理数据</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>定时器</strong></td>
+<td style="text-align:left">控制请求节奏</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>取样器</strong></td>
+<td style="text-align:left">真正发请求</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>后置处理器</strong></td>
+<td style="text-align:left">提取响应数据</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>断言</strong></td>
+<td style="text-align:left">校验响应</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>监听器</strong></td>
+<td style="text-align:left">收集结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>记忆口诀：</strong></p>
+<blockquote>
+<p><strong>配置 → 前置 → 定时 → 取样 → 后置 → 断言 → 监听</strong></p>
+</blockquote>
+<hr />
+<h3 id="按功能归类总结"><a class="markdownIt-Anchor" href="#按功能归类总结"></a> 按功能归类总结</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">功能</th>
+<th style="text-align:left">对应组件</th>
+<th style="text-align:left">常用度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">控制并发</td>
+<td style="text-align:left">线程组</td>
+<td style="text-align:left">极高</td>
+</tr>
+<tr>
+<td style="text-align:left">准备数据</td>
+<td style="text-align:left">CSV 数据文件设置</td>
+<td style="text-align:left">极高</td>
+</tr>
+<tr>
+<td style="text-align:left">设置请求头</td>
+<td style="text-align:left">HTTP 信息头管理器</td>
+<td style="text-align:left">极高</td>
+</tr>
+<tr>
+<td style="text-align:left">发请求</td>
+<td style="text-align:left">HTTP 请求</td>
+<td style="text-align:left">极高</td>
+</tr>
+<tr>
+<td style="text-align:left">提取响应</td>
+<td style="text-align:left">JSON 提取器 / 正则表达式提取器</td>
+<td style="text-align:left">高</td>
+</tr>
+<tr>
+<td style="text-align:left">校验结果</td>
+<td style="text-align:left">响应断言</td>
+<td style="text-align:left">高</td>
+</tr>
+<tr>
+<td style="text-align:left">控制节奏</td>
+<td style="text-align:left">定时器</td>
+<td style="text-align:left">中</td>
+</tr>
+<tr>
+<td style="text-align:left">控制流程</td>
+<td style="text-align:left">逻辑控制器</td>
+<td style="text-align:left">中</td>
+</tr>
+<tr>
+<td style="text-align:left">查看结果</td>
+<td style="text-align:left">聚合报告 / 查看结果树</td>
+<td style="text-align:left">极高</td>
+</tr>
+<tr>
+<td style="text-align:left">前后置处理</td>
+<td style="text-align:left">JSR223 处理器</td>
+<td style="text-align:left">中</td>
+</tr>
+<tr>
+<td style="text-align:left">环境准备/清理</td>
+<td style="text-align:left">setUp / tearDown 线程组</td>
+<td style="text-align:left">中</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="细节讲述"><a class="markdownIt-Anchor" href="#细节讲述"></a> 细节讲述</h3>
+<h4 id="如何使用-jmeter-测试文件上传接口"><a class="markdownIt-Anchor" href="#如何使用-jmeter-测试文件上传接口"></a> <strong>如何使用 JMeter 测试文件上传接口？</strong></h4>
+<p>采样器选择http请求,通常选择post,填写好路径,然后勾选<strong>对POST使用multipart/form-data</strong>,</p>
+<ul>
+<li><strong>对POST使用multipart/form-data</strong>:这个主要是为了<strong>以标准格式混合发送普通表单数据和文件</strong>。如果不勾选，JMeter 默认会把所有数据当成<strong>纯文本</strong>发送，导致服务器无法解析出文件，从而上传失败。</li>
+</ul>
+<h4 id="前置处理器"><a class="markdownIt-Anchor" href="#前置处理器"></a> 前置处理器</h4>
+<ol>
+<li>JSR223 PreProcessor (JSR223 预处理程序)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 万能的**“代码编辑器”**。允许你写代码（比如 Groovy 脚本）来动态生成或修改数据。</li>
+<li><strong>场景：</strong> 接口需要复杂的加密（如 AES、RSA、你之前做的 Base64 签名）、需要动态拼接复杂的 JSON 字符串、需要根据上一个请求的结果做复杂的逻辑判断。</li>
+<li><strong>推荐度：</strong> ⭐⭐⭐⭐⭐（现在 JMeter 的首选，性能好，支持代码多）。</li>
+</ul>
+<ol start="2">
+<li>用户参数 (User Parameters)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 用来<strong>提前定义好一批变量</strong>，给后面的请求使用。</li>
+<li><strong>场景：</strong> 类似于“数据池”。比如你准备了 5 个不同的账号和密码，设置好之后，每个虚拟用户跑的时候就会依次去取不同的账号，用于模拟多用户登录。</li>
+</ul>
+<ol start="3">
+<li>HTML链接解析器 (HTML Link Parser)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 自动解析上一个请求返回的 HTML 页面代码，找出里面所有的超链接（<code>&lt;a href=&quot;...&quot;&gt;</code>）。</li>
+<li><strong>场景：</strong> 以前用来做简单的 Web 页面爬取或模拟点击。<strong>现在用得很少</strong>，因为现在的系统大多是前后端分离，返回的都是 JSON，而且正则表达式或 XPath 提取器比它更好用。</li>
+</ul>
+<ol start="4">
+<li>HTTP URL 重写修饰符 (HTTP URL Re-writing Modifier)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 专门针对老旧系统（不支持 Cookie 的），它会自动把会话 ID（如 <code>jsessionid</code>）拼接到你的 URL 路径后面。</li>
+<li><strong>场景：</strong> 极少用。现代系统基本都用 Cookie 管理器 (HTTP Cookie Manager) 来保持登录状态，这个已经被淘汰了。</li>
+</ul>
+<ol start="5">
+<li>JDBC PreProcessor (JDBC 预处理程序)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 在请求发送前，<strong>去数据库里查点东西</strong>。</li>
+<li><strong>场景：</strong> 比如测试时需要真实的测试数据，你可以写一段 SQL（<code>select id from users limit 1</code>），提前查出用户的 ID，然后把查出来的 ID 赋值给变量，再放进 HTTP 请求里发出去。</li>
+</ul>
+<ol start="6">
+<li>正则表达式用户参数 (RegEx User Parameters)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 使用正则表达式从上一个请求的响应结果中提取数据。</li>
+<li><strong>场景：</strong> <strong>也很少用</strong>。因为 JMeter 有专门的“后置处理器”（如正则表达式提取器），那个功能更强、更好用。这个前置处理器算是历史遗留产物。</li>
+</ul>
+<ol start="7">
+<li>取样器超时 (Sample Timeout)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 限制执行时间。如果前置脚本或准备工作卡住了，超过设定时间就直接报错，防止 JMeter 一直干等。</li>
+<li><strong>场景：</strong> 极少用。一般直接在 HTTP 请求里设置超时时间就行。</li>
+</ul>
+<ol start="8">
+<li>BeanShell PreProcessor (BeanShell 预处理程序)</li>
+</ol>
+<ul>
+<li><strong>作用：</strong> 和 JSR223 一样，也是<strong>写代码的</strong>，但是它支持的是比较老的 BeanShell 语言。</li>
+<li><strong>场景：</strong> <strong>不推荐使用</strong>。它性能差、速度慢，在并发量大的时候会把 JMeter 卡死。现在所有需要用代码的场景，都用上面的 <strong>JSR223</strong> 替代了。</li>
+</ul>
+<h4 id="如何处理需要加密请求的参数"><a class="markdownIt-Anchor" href="#如何处理需要加密请求的参数"></a> 如何处理需要加密请求的参数</h4>
+<p>具体步骤如下：</p>
+<ol>
+<li>添加一个 HTTP Request 元件，配置好目标 URL 和请求方法。</li>
+<li>在 HTTP Request 元件的子元素中，添加 “JSR223 PreProcessor” 并选择语言为 “Groovy” 。</li>
+<li>在 JSR223 PreProcessor 中编写 Groovy 脚本来处理加密逻辑。</li>
+<li>在 HTTP Request 中使用 <code>${variableName}</code> 引用加密后的参数。</li>
+</ol>
+<h4 id="jmeter-中-http-信息头管理器http-header-manager的作用与配置"><a class="markdownIt-Anchor" href="#jmeter-中-http-信息头管理器http-header-manager的作用与配置"></a> JMeter 中 HTTP 信息头管理器（HTTP Header Manager）的作用与配置</h4>
+<p>组件定位：它是一个独立于 HTTP 请求面板之外的配置元件，用来告诉 JMeter 在发送请求时应附带哪些头部信息。<br />
+核心用途：最常见的用途是设置 <code>Content-Type</code> 为 <code>application/json</code>，让服务器正确识别发送的数据格式；也可用于配置 <code>Authorization</code> 传递 Token 等自定义请求头。<br />
+添加方式：右键点击线程组（全局生效）或具体的 HTTP 请求（局部生效），选择“添加 -&gt; 配置元件 -&gt; HTTP 信息头管理器”，然后在组件面板中点击“添加”填入名称和对应的值。<br />
+优先级：离请求越近的组件优先级越高，允许在全局配置基础上针对特定接口进行单独覆盖。</p>
+<h4 id="jmeter-中-post-请求与-json-消息体数据的配合"><a class="markdownIt-Anchor" href="#jmeter-中-post-请求与-json-消息体数据的配合"></a> JMeter 中 POST 请求与 JSON 消息体数据的配合</h4>
+<p>场景匹配：在接口测试中，POST 请求配合“消息体数据（Body Data）”填写 JSON 格式，是传输结构化数据的标准做法。<br />
+发送流程：在请求方法下拉框选择 POST，点击“消息体数据”标签页粘贴 JSON 字符串，并配合 HTTP 信息头管理器设置 <code>Content-Type: application/json</code>。<br />
+底层逻辑：请求发出时，JSON 文本被放置在 HTTP 请求的 Body 中，不会显示在 URL 上；HTTP 头管理器中的 Content-Type 相当于标签，告知服务器按 JSON 语法解析包裹内的数据。</p>
+<h4 id="jmeter-中-http-cookie-管理器的使用"><a class="markdownIt-Anchor" href="#jmeter-中-http-cookie-管理器的使用"></a> JMeter 中 HTTP Cookie 管理器的使用</h4>
+<p>功能定位：相当于浏览器的记忆本，自动记录服务器返回的 Cookie（如 Session ID），并在后续请求中自动携带，用于维持登录状态。<br />
+添加位置：建议添加在线程组（Thread Group）层级，使线程组内的所有 HTTP 请求都能共享该 Cookie 状态。<br />
+配置方式：右键线程组选择“添加 -&gt; 配置元件 -&gt; HTTP Cookie 管理器”；支持自动抓取，也可在界面中手动点击“添加”伪造特定的 Cookie 键值以测试不同权限。</p>
+<h4 id="jmeter-测试-soap-请求的方法"><a class="markdownIt-Anchor" href="#jmeter-测试-soap-请求的方法"></a> JMeter 测试 SOAP 请求的方法</h4>
+<p>协议特点：SOAP 是一种基于 XML 的数据交互协议，常见于金融或企业级内部系统。<br />
+专用采样器路径：添加“SOAP/XML-RPC Request”采样器，填入 URL，并将长串 XML 报文直接粘贴到采样器的数据输入框中。<br />
+通用 HTTP 请求路径：使用普通的 HTTP 请求，方法选 POST，在“消息体数据”中粘贴 XML，并添加 HTTP 信息头管理器，根据服务版本设置 <code>Content-Type</code> 为 <code>text/xml;charset=utf-8</code> 或 <code>application/soap+xml</code>。</p>
+<h4 id="jmeter-中的参数化实现方式"><a class="markdownIt-Anchor" href="#jmeter-中的参数化实现方式"></a> JMeter 中的参数化实现方式</h4>
+<p>CSV 数据文件设置：最常用、最推荐的企业级方案。将测试数据保存在 CSV/TXT 文件中，通过配置元件读取，实现数据与脚本分离。<br />
+函数助手：利用 JMeter 自带函数（如 <code>__Random</code> 随机数、<code>__time</code> 时间戳）动态生成每次请求需要变化的差异化数据。<br />
+用户定义的变量：用于配置全局常量（如基础 URL、端口号），修改时只需更改一处。<br />
+数据库提取：通过 JDBC 连接直接查询数据库获取真实数据，作为参数传递给后续的 HTTP 请求。</p>
+<h4 id="jmeter-测试完成后自动发送邮件"><a class="markdownIt-Anchor" href="#jmeter-测试完成后自动发送邮件"></a> JMeter 测试完成后自动发送邮件</h4>
+<p>标准组件：安装 JMeter 插件管理器中的 <code>jpgc - Standard Set</code> 插件，在测试计划下添加“Mailer Visualizer（邮件观察仪）”监听器。<br />
+核心配置：配置发件人、收件人、SMTP 服务器地址以及认证信息（使用邮箱的授权码），并勾选触发条件（如测试报错时发送或设置失败率阈值）。<br />
+企业级 CI/CD 方案：在持续集成环境（如 Jenkins）中，通常通过命令行无界面运行 JMeter 生成 HTML 报告，再借助 CI 工具的邮件插件将报告以附件形式发送给团队。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://moshiqiqian.top">moshiqiqian</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://moshiqiqian.top/post/e934e43c.html">https://moshiqiqian.top/post/e934e43c.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://moshiqiqian.top" target="_blank">moshiqiqian</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B5%8B%E8%AF%95/">测试</a><a class="post-meta__tags" href="/tags/JMeter/">JMeter</a><a class="post-meta__tags" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/">压力测试</a></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/picture/weixin.jpg" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/weixin.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/picture/zhifubao.jpg" target="_blank"><img class="post-qr-code-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/zhifubao.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav id="pagination"><div class="pagination"></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/picture/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/picture/not_found.jpg'" alt="avatar"/></div><div class="author-info-name">moshiqiqian</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/moshiqiqian"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">致力于写出每个人都能看懂的文章！</div></div><div class="sticky_layout"><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">33</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">71.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-10-22T12:58:24.732Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By moshiqiqian</span></div><div class="footer_custom_text">mo的小站</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (true) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-teal-mu.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo-teal-mu.vercel.app/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/light.js"></script><script defer src="/js/universe.js"></script><canvas id="universe"></canvas><script defer src="/js/cursor.js"></script><script defer src="/js/emoji.js"></script><script defer src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script><script defer src="https://unpkg.com/element-ui@2.15.6/lib/index.js"></script><script defer src="/js/formal.js"></script><script defer src="/js/console.js"></script><script defer src="/js/swiper_fix.js"></script><script async data-pjax src="/"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/a2992615.html" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面6.8hgrwavk8n.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2026-08-30</span><a class="blog-slider__title" href="post/a2992615.html" alt="">LangChain 介绍</a><div class="blog-slider__text">LangChain 以及相关技术介绍</div><a class="blog-slider__button" href="post/a2992615.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/bb733ff7.html" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面1.2yyng5nc4o.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-07-18</span><a class="blog-slider__title" href="post/bb733ff7.html" alt="">玻尔兹曼机</a><div class="blog-slider__text">玻尔兹曼机的基础概念以及原理介绍</div><a class="blog-slider__button" href="post/bb733ff7.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/624c7376.html" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面1.2yyng5nc4o.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-10-08</span><a class="blog-slider__title" href="post/624c7376.html" alt="">图灵机</a><div class="blog-slider__text">图灵机家族的相关介绍</div><a class="blog-slider__button" href="post/624c7376.html" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="post/cbdf0372.html" alt=""><img width="48" height="48" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://moshiqiqian.github.io/picx-images-hosting/网站/封面2.8ojzrqhpnv.webp" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2025-05-24</span><a class="blog-slider__title" href="post/cbdf0372.html" alt="">霍普菲尔德网络</a><div class="blog-slider__text">霍普菲尔德网络的原理以及公式解释</div><a class="blog-slider__button" href="post/cbdf0372.html" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://npm.elemecdn.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
